@@ -35,6 +35,7 @@
 
 body {
   background-color: var(--color-200);
+  margin: var(--gutter-xs);
 }
 
 .container {
@@ -44,9 +45,9 @@ body {
   font-style: normal;
   display: grid;
   grid-auto-rows: min-content;
-  min-height: 95vh;
+  min-height: 70vh;
   max-width: 960px;
-  margin: var(--gutter-xs) auto;
+  margin: 0 auto;
   box-shadow: 0 10px 20px var(--color-800), 0 6px 6px var(--color-900);
   border-radius: 12px;
   overflow: hidden;
@@ -93,7 +94,7 @@ body {
 .main-container {
   padding: var(--gutter-md);
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: var(--gutter-xs);
 }
 
@@ -140,7 +141,6 @@ body {
   padding: 1px var(--gutter-xxs);
   text-transform: uppercase;
 }
-
 
 .card-buttons {
   display: flex;
