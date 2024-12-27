@@ -1,8 +1,3 @@
-const myLibrary = [];
-
-initialData();
-displayCards(myLibrary);
-
 function Book(title, author, pages, read) {
   this.title = title;
   this.author = author;
@@ -10,16 +5,51 @@ function Book(title, author, pages, read) {
   this.read = read;
 }
 
+const myLibrary = [];
+const dialog = document.querySelector(".book-form-dialog");
+const newBookButton = document.querySelector(".header-container .btn");
+const closeButton = dialog.querySelector(".close-btn");
+const cancelButton = dialog.querySelector(".cancel-btn");
+const form = dialog.querySelector(".book-form");
+const container = document.querySelector(".main-container");
+
+newBookButton.addEventListener("click", () => {
+  dialog.showModal();
+});
+
+[closeButton, cancelButton].forEach((btn) =>
+  btn.addEventListener("click", () => dialog.close())
+);
+
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  const formData = new FormData(form);
+  const newBook = new Book(
+    formData.get("title"),
+    formData.get("author"),
+    formData.get("pages"),
+    formData.get("read") === "true"
+  );
+
+  addBookToLibrary(newBook);
+
+  form.reset();
+  dialog.close();
+
+  displayCards(myLibrary);
+});
+
 function addBookToLibrary(book) {
   if (!(book instanceof Book)) {
     throw new Error("Invalid book");
   }
 
-  myLibrary.push(book);
+  myLibrary.unshift(book);
 }
 
 function displayCards(books) {
-  const container = document.querySelector(".main-container");
+  container.innerText = "";
 
   books.forEach((book) => {
     const bookCard = createBookCard(
@@ -82,12 +112,12 @@ function createBookCard(title, author, pages, readStatus) {
 }
 
 function initialData() {
-  const book1 = new Book("1984", "George Orwell", 328, true);
-  const book2 = new Book("To Kill a Mockingbird", "Harper Lee", 281, false);
-  const book3 = new Book("The Great Gatsby", "F. Scott Fitzgerald", 180, true);
-  const book4 = new Book("Moby-Dick", "Herman Melville", 635, false);
-  const book5 = new Book("Pride and Prejudice", "Jane Austen", 279, true);
-  const book6 = new Book("The Catcher in the Rye", "J.D. Salinger", 214, false);
+  const book1 = new Book("The Adventures of Lorem", "Ipsum Dolor", 123, true);
+  const book2 = new Book("Aliquam Faucibus", "Consectetur Adipis", 456, false);
+  const book3 = new Book("Suspendisse Volut", "Egestas Ut Eleifend", 789, true);
+  const book4 = new Book("Vestibulum Vitae", "Auctor Nisi", 234, false);
+  const book5 = new Book("Curabitur Ultricies", "Pellentes Tempus", 345, true);
+  const book6 = new Book("Proin Sodales", "Maecenas Pharetra", 567, false);
 
   addBookToLibrary(book1);
   addBookToLibrary(book2);
@@ -95,4 +125,8 @@ function initialData() {
   addBookToLibrary(book4);
   addBookToLibrary(book5);
   addBookToLibrary(book6);
+
+  displayCards(myLibrary);
 }
+
+initialData();

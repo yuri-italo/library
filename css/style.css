@@ -45,7 +45,7 @@ body {
   font-style: normal;
   display: grid;
   grid-auto-rows: min-content;
-  min-height: 70vh;
+  min-height: 95vh;
   max-width: 960px;
   margin: 0 auto;
   box-shadow: 0 10px 20px var(--color-800), 0 6px 6px var(--color-900);
@@ -151,4 +151,103 @@ body {
   border-radius: var(--size-xxs);
   padding: var(--size-xs) var(--size-xs);
   font-size: var(--size-xs);
+}
+
+.book-form-dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--color-50);
+  padding: var(--gutter-md);
+  border: 2px solid var(--color-400);
+  border-radius: var(--size-sm);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 400px;
+  font-family: "Roboto", sans-serif;
+  font-size: var(--size-md);
+  color: var(--color-900);
+}
+
+.book-form-dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.book-form-dialog .dialog-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--gutter-xs);
+}
+
+.book-form-dialog .dialog-header h2 {
+  font-size: var(--size-lg);
+  color: var(--color-700);
+  margin: 0;
+}
+
+.book-form-dialog .close-btn {
+  background: none;
+  border: none;
+  font-size: var(--size-2xl);
+  color: var(--color-900);
+  cursor: pointer;
+}
+
+.book-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gutter-sm);
+}
+
+.book-form label {
+  font-weight: bold;
+  color: var(--color-800);
+}
+
+.book-form input,
+.book-form select {
+  background-color: var(--color-50);
+  padding: var(--gutter-xxs);
+  font-size: var(--size-md);
+  border: 2px solid var(--color-300);
+  border-radius: var(--size-xs);
+  outline: none;
+}
+
+.book-form input:focus,
+.book-form select:focus {
+  border-color: var(--color-500);
+  box-shadow: 0 0 0 3px var(--color-200);
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--gutter-xs);
+}
+
+.form-buttons .btn {
+  padding: var(--gutter-xxs) var(--gutter-sm);
+  font-size: var(--size-md);
+  background-color: var(--color-400);
+  color: var(--color-50);
+  border: none;
+  border-radius: var(--size-xs);
+  cursor: pointer;
+}
+
+.form-buttons .btn:hover {
+  background-color: var(--color-500);
+}
+
+.form-buttons .cancel-btn {
+  background-color: var(--color-300);
+  color: var(--color-900);
+}
+
+.form-buttons .cancel-btn:hover {
+  background-color: var(--color-400);
+  color: var(--color-50);
 }
