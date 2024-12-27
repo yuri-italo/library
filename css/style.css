@@ -1,0 +1,34 @@
+:root {
+  --color-50: #f5f3ff;
+  --color-100: #ede9fe;
+  --color-200: #ddd6fe;
+  --color-300: #c4b5fd;
+  --color-400: #a78bfa;
+  --color-500: #8b5cf6;
+  --color-600: #7c3aed;
+  --color-700: #6d28d9;
+  --color-800: #5b21b6;
+  --color-900: #4c1d95;
+  --color-950: #2e1065;
+  --size-xxs: 0.625rem; /* 10px */
+  --size-xs: 0.75rem; /* 12px */
+  --size-sm: 0.875rem; /* 14px */
+  --size-md: 1rem; /* 16px */
+  --size-lg: 1.125rem; /* 18px */
+  --size-xl: 1.25rem; /* 20px */
+  --size-2xl: 1.5rem; /* 24px */
+  --size-3xl: 1.875rem; /* 30px */
+  --size-4xl: 2.25rem; /* 36px */
+  --size-5xl: 3rem; /* 48px */
+  --size-6xl: 3.75rem; /* 60px */
+  --size-7xl: 4.5rem; /* 72px */
+  --size-8xl: 6rem; /* 96px */
+  --size-9xl: 8rem; /* 128px */
+  --gutter-xxl: 96px; /* Extra-extra large */
+  --gutter-xl: 80px; /* Extra large */
+  --gutter-lg: 64px; /* Large */
+  --gutter-md: 40px; /* Medium */
+  --gutter-sm: 24px; /* Small */
+  --gutter-xs: 16px; /* Extra small */
+  --gutter-xxs: 8px; /* Extra-extra small */
+}
