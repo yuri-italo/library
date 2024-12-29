@@ -59,6 +59,7 @@ function displayCards(books) {
       book.read
     );
 
+    bookCard.setAttribute("data-id", books.indexOf(book));
     container.appendChild(bookCard);
   });
 }
@@ -94,12 +95,13 @@ function createBookCard(title, author, pages, readStatus) {
   cardButtons.classList.add("card-buttons");
 
   const statusButton = document.createElement("button");
-  statusButton.classList.add("btn");
+  statusButton.classList.add("btn", "status-btn");
   statusButton.textContent = "Status";
 
   const removeButton = document.createElement("button");
-  removeButton.classList.add("btn");
+  removeButton.classList.add("btn", "remove-btn");
   removeButton.textContent = "Remove";
+  removeButton.addEventListener("click", handleRemoveCard);
 
   cardButtons.appendChild(statusButton);
   cardButtons.appendChild(removeButton);
@@ -109,6 +111,12 @@ function createBookCard(title, author, pages, readStatus) {
   card.appendChild(cardButtons);
 
   return card;
+}
+
+function handleRemoveCard(event) {
+  const index = event.target.closest(".book-card").getAttribute("data-id");
+  myLibrary.splice(index, 1);
+  displayCards(myLibrary);
 }
 
 function initialData() {
