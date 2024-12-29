@@ -5,6 +5,10 @@ function Book(title, author, pages, read) {
   this.read = read;
 }
 
+Book.prototype.toggleStatus = function () {
+  this.read = !this.read;
+};
+
 const myLibrary = [];
 const dialog = document.querySelector(".book-form-dialog");
 const newBookButton = document.querySelector(".header-container .btn");
@@ -97,6 +101,7 @@ function createBookCard(title, author, pages, readStatus) {
   const statusButton = document.createElement("button");
   statusButton.classList.add("btn", "status-btn");
   statusButton.textContent = "Status";
+  statusButton.addEventListener("click", handleChangeStatus);
 
   const removeButton = document.createElement("button");
   removeButton.classList.add("btn", "remove-btn");
@@ -116,6 +121,12 @@ function createBookCard(title, author, pages, readStatus) {
 function handleRemoveCard(event) {
   const index = event.target.closest(".book-card").getAttribute("data-id");
   myLibrary.splice(index, 1);
+  displayCards(myLibrary);
+}
+
+function handleChangeStatus(event) {
+  const index = event.target.closest(".book-card").getAttribute("data-id");
+  myLibrary[index].toggleStatus();
   displayCards(myLibrary);
 }
 
